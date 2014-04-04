@@ -310,7 +310,11 @@ for klass, fact in [
         Q.irrational))),
     (Mul, Implies(AllArgs(Q.rational), Q.rational)),
     (Add, Implies(AllArgs(Q.rational), Q.rational)),
-
+    (Mul, Implies(AllArgs(Q.integer), Implies(AllArgs(Q.odd), Q.odd))),
+    (Mul, Implies(AllArgs(Q.integer), Implies(~AllArgs(Q.odd), Q.even))),
+    (Add, Implies(AllArgs(Q.integer), Implies(ExactlyOneArg(Q.odd), Q.odd))),
+    (Add, Implies(AllArgs(Q.integer), Implies(AllArgs(Q.even), Q.even))),
+    (Add, Implies(AllArgs(Q.integer), Implies(AllArgs(Q.odd), Q.even))),
     (Abs, Q.nonnegative),
     (Abs, Equivalent(AllArgs(Q.nonzero), Q.nonzero)),
 
